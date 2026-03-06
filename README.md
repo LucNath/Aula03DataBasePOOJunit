@@ -104,4 +104,4 @@ Os resultados dos testes serão exibidos no terminal e salvos em `target/surefir
 
 ## 📄 Licença
 
-Este projeto é de uso acadêmico. Consulte o autor para mais informações sobre uso e distribuição.
+Este projeto é de criação pessoal. Consulte o autor para mais informações sobre uso e distribuição.
