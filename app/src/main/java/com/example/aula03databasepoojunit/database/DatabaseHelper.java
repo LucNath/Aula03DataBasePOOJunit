@@ -22,7 +22,6 @@ public class DatabaseHelper {
 
     //Tabela Produtos
     public static final String TABLE_PRODUTO = "produto";
-
     public static final String COLUMN_PRODUTO_ID = "id";
     public static final String COLUMN_PRODUTO_DESCRICAO = "descricao";
     public static final String COLUMN_PRODUTO_UNIDADE = "unidade";
