@@ -30,6 +30,14 @@ public class DatabaseHelper {
     public static final String COLUMN_PRODUTO_ESTOQUE = "estoque";
 
 
+    //Tabela de relacionamento entre Fornecedores e Produtos
+    public static final String TABLE_FORNECEDOR_PRODUTO = "fornecedor_produto";
+    public static final String COLUMN_FORNECEDOR_PRODUTO_FORNECEDOR_ID = "fornecedor_id";
+    public static final String COLUMN_FORNECEDOR_PRODUTO_PRODUTO_ID = "produto_id";
+
+
+
+
 
 
 
