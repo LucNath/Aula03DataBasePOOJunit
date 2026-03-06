@@ -35,8 +35,30 @@ public class DatabaseHelper {
     public static final String COLUMN_FORNECEDOR_PRODUTO_FORNECEDOR_ID = "fornecedor_id";
     public static final String COLUMN_FORNECEDOR_PRODUTO_PRODUTO_ID = "produto_id";
 
+    private static final String CREATE_TABLE_ENDERECO = "CREATE TABLE " + TABLE_ENDERECO + "(" +
+            COLUMN_ENDERECO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_ENDERECO_ENDERECO + " TEXT, " +
+            COLUMN_ENDERECO_CIDADE + " TEXT, " +
+            COLUMN_ENDERECO_ESTADO + " TEXT)" +
+            ")";
 
+    public static final String CREATE_TABLE_FORNECEDOR = "CREATE TABLE " + TABLE_FORNECEDOR + "(" +
+            COLUMN_FORNECEDOR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_FORNECEDOR_NOME + " TEXT, " +
+            COLUMN_FORNECEDOR_CONTATO + " TEXT, " +
+            COLUMN_FORNECEDOR_ENDERECO_ID + " INTEGER, " +
+            "FOREIGN KEY (" + COLUMN_FORNECEDOR_ENDERECO_ID + ") REFERENCES " + TABLE_ENDERECO + "(" + COLUMN_ENDERECO_ID + ")" +
+            ")";
 
+    public static final String CREATE_TABLE_PRODUTO = "CREATE TABLE " + TABLE_PRODUTO + "(" +
+            COLUMN_PRODUTO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_PRODUTO_DESCRICAO + " TEXT, " +
+            COLUMN_PRODUTO_UNIDADE + " TEXT, " +
+            COLUMN_PRODUTO_QUANTIDADE + " REAL, " +
+            COLUMN_PRODUTO_VALOR + " REAL, " +
+            COLUMN_PRODUTO_ESTOQUE + " INTEGER, " +
+            "FOREIGN KEY (" + COLUMN_FORNECEDOR_PRODUTO_PRODUTO_ID + ") REFERENCES " + TABLE_FORNECEDOR + "(" + COLUMN_FORNECEDOR_ID + ")" +
+            ")";
 
 
 

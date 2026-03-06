@@ -18,7 +18,6 @@ public class Endereco {
         this.cidade = cidade;
         this.estado = estado;
     }
-
     public long getId() {
         return id;
     }
