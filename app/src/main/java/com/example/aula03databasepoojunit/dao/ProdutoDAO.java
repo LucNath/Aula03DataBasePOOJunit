@@ -1,11 +1,8 @@
 package com.example.aula03databasepoojunit.dao;
 
 import android.database.sqlite.SQLiteDatabase;
-
 import com.example.aula03databasepoojunit.database.DatabaseHelper;
-import com.example.aula03databasepoojunit.model.Endereco;
 import com.example.aula03databasepoojunit.model.Produto;
-
 import java.util.List;
 
 public class ProdutoDAO {
@@ -48,26 +45,31 @@ public class ProdutoDAO {
         return 0;
     }
 
-    //CONSULTAR TODOS OS REGISTROS
+    //CONTAR TODOS OS REGISTROS
     public int getCount() {
         return 0;
     }
 
-    public Produto getEndereco(long id) {
+    public Produto getProduto(long id) {
         return null;
     }
 
-    public List<Produto> getByCidade(String cidade) {
+    public List<Produto> getByDescricao(String descricao) {
         return null;
     }
 
-    public List<Produto> getByEstado(String estado) {
+    //JOINS - JUNÇÃO DE TABELAS
+    public List<Produto> getAllWithFornecedor() {
         return null;
     }
-
+    public List<Produto> getEmEstoque() {
+        return null;
+    }
     private Produto cursorToProduto(android.database.Cursor cursor) {
         return null;
     }
+
+
 
 
 }
