@@ -1,6 +1,11 @@
 package com.example.aula03databasepoojunit.database;
 
-public class DatabaseHelper {
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.Nullable;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "AppAula03.db";
     private static final int DATABASE_VERSION = 1;
@@ -10,7 +15,6 @@ public class DatabaseHelper {
     public static final String COLUMN_ENDERECO_ID = "id";
     public static final String COLUMN_ENDERECO_ENDERECO = "endereco";
     public static final String COLUMN_ENDERECO_CIDADE = "cidade";
-
     public static final String COLUMN_ENDERECO_ESTADO = "estado";
 
     //Tabela Fornecedores
@@ -29,7 +33,6 @@ public class DatabaseHelper {
     public static final String COLUMN_PRODUTO_VALOR = "valor";
     public static final String COLUMN_PRODUTO_ESTOQUE = "estoque";
 
-
     //Tabela de relacionamento entre Fornecedores e Produtos
     public static final String TABLE_FORNECEDOR_PRODUTO = "fornecedor_produto";
     public static final String COLUMN_FORNECEDOR_PRODUTO_FORNECEDOR_ID = "fornecedor_id";
@@ -39,7 +42,7 @@ public class DatabaseHelper {
             COLUMN_ENDERECO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_ENDERECO_ENDERECO + " TEXT, " +
             COLUMN_ENDERECO_CIDADE + " TEXT, " +
-            COLUMN_ENDERECO_ESTADO + " TEXT)" +
+            COLUMN_ENDERECO_ESTADO + " TEXT" +
             ")";
 
     public static final String CREATE_TABLE_FORNECEDOR = "CREATE TABLE " + TABLE_FORNECEDOR + "(" +
@@ -60,9 +63,17 @@ public class DatabaseHelper {
             "FOREIGN KEY (" + COLUMN_FORNECEDOR_PRODUTO_PRODUTO_ID + ") REFERENCES " + TABLE_FORNECEDOR + "(" + COLUMN_FORNECEDOR_ID + ")" +
             ")";
 
+    public DatabaseHelper(@Nullable Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
 
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
+    }
 
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
-
+    }
 }
