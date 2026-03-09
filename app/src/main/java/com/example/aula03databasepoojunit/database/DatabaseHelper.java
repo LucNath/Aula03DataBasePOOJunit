@@ -53,6 +53,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "FOREIGN KEY (" + COLUMN_FORNECEDOR_ENDERECO_ID + ") REFERENCES " + TABLE_ENDERECO + "(" + COLUMN_ENDERECO_ID + ")" +
             ")";
 
+    private static final String CREATE_TABLE_FORNECEDOR_PRODUTO = "CREATE TABLE " + TABLE_FORNECEDOR_PRODUTO + "(" +
+            COLUMN_FORNECEDOR_PRODUTO_FORNECEDOR_ID + " INTEGER, " +
+            COLUMN_FORNECEDOR_PRODUTO_PRODUTO_ID + " INTEGER, " +
+            "PRIMARY KEY (" + COLUMN_FORNECEDOR_PRODUTO_FORNECEDOR_ID + ", " + COLUMN_FORNECEDOR_PRODUTO_PRODUTO_ID + "), " +
+            "FOREIGN KEY (" + COLUMN_FORNECEDOR_PRODUTO_FORNECEDOR_ID + ") REFERENCES " + TABLE_FORNECEDOR + "(" + COLUMN_FORNECEDOR_ID + "), " +
+            "FOREIGN KEY (" + COLUMN_FORNECEDOR_PRODUTO_PRODUTO_ID + ") REFERENCES " + TABLE_PRODUTO + "(" + COLUMN_PRODUTO_ID + ")" +
+            ")";
+
     public static final String CREATE_TABLE_PRODUTO = "CREATE TABLE " + TABLE_PRODUTO + "(" +
             COLUMN_PRODUTO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_PRODUTO_DESCRICAO + " TEXT, " +
@@ -69,6 +77,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
+        sqLiteDatabase.execSQL(CREATE_TABLE_ENDERECO);
+        sqLiteDatabase.execSQL(CREATE_TABLE_FORNECEDOR);
+        sqLiteDatabase.execSQL(CREATE_TABLE_PRODUTO);
+        sqLiteDatabase.execSQL(CREATE_TABLE_FORNECEDOR_PRODUTO);
 
     }
 

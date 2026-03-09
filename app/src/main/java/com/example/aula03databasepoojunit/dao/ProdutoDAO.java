@@ -1,23 +1,29 @@
 package com.example.aula03databasepoojunit.dao;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.example.aula03databasepoojunit.database.DatabaseHelper;
 import com.example.aula03databasepoojunit.model.Produto;
 import java.util.List;
 
 public class ProdutoDAO {
-    private SQLiteDatabase db;
+    private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
 
     //Métodos CRUD
+
+
+    //Construtor Padrão
+    public ProdutoDAO(Context context) {
+        dbHelper = new DatabaseHelper(context);
+    }
+
     private void open() {
+        db = dbHelper.getWritableDatabase();
     }
 
     private void close() {
-    }
-
-    //Construtor Padrão
-    public ProdutoDAO() {
+        dbHelper.close();
     }
 
     //CREATE - INSERIR UM NOVO REGISTRO (Produto)

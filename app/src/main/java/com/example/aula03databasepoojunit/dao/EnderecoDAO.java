@@ -1,5 +1,6 @@
 package com.example.aula03databasepoojunit.dao;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -9,18 +10,22 @@ import com.example.aula03databasepoojunit.model.Endereco;
 import java.util.List;
 
 public class EnderecoDAO {
-    private SQLiteDatabase db;
+    private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
 
     //Métodos CRUD
+
+    //Construtor Padrão
+    public EnderecoDAO(Context context) {
+        dbHelper = new DatabaseHelper(context);
+    }
+
     private void open() {
+        database = dbHelper.getWritableDatabase();
     }
 
     private void close() {
-    }
-
-    //Construtor Padrão
-    public EnderecoDAO() {
+        dbHelper.close();
     }
 
     //CREATE - INSERIR UM NOVO REGISTRO

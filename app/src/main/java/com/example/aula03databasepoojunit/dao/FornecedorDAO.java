@@ -1,5 +1,6 @@
 package com.example.aula03databasepoojunit.dao;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.example.aula03databasepoojunit.model.Fornecedor;
@@ -7,16 +8,21 @@ import com.example.aula03databasepoojunit.database.DatabaseHelper;
 import java.util.List;
 
 public class FornecedorDAO {
-    private SQLiteDatabase db;
+    private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
 
     //Métodos CRUD
+
+    //Construtor Padrão
+    public FornecedorDAO(Context context) {
+        dbHelper = new DatabaseHelper(context);
+    }
+
     private void open() {
+        database = dbHelper.getWritableDatabase();
     }
     private void close() {
-    }
-    //Construtor Padrão
-    public FornecedorDAO() {
+        dbHelper.close();
     }
 
     //CREATE - INSERIR UM NOVO REGISTRO (Fornecedor)
